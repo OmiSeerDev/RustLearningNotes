@@ -16,5 +16,12 @@ fn main() {
      let mut name: String = String::new();
      std::io::stdin().read_line(&mut name).unwrap();
 
-     println!("Congratulations, {}. You've made your first input log", name);
+     println!("Congratulations, {}. You've made your first input log. 
+     Insert a number: ", name);
+     let mut firstNumber: String = String::new();
+     std::io::stdin().read_line(&mut firstNumber).unwrap();
+
+     let mut firstNumber_int: u32 = firstNumber.trim().parse().unwrap();
+     print!("Your input number is: {}", firstNumber_int);
+
 }
