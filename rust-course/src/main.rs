@@ -22,6 +22,24 @@ fn main() {
      std::io::stdin().read_line(&mut firstNumber).unwrap();
 
      let mut firstNumber_int: u32 = firstNumber.trim().parse().unwrap();
-     print!("Your input number is: {}", firstNumber_int);
+    
 
+     //Conditionals
+     if firstNumber_int > 18 {
+        println!("Woow! you're an adult");
+    } else {
+         println!("Hey! you're underage!");
+     }
+
+     //Loops
+     loop {
+        println!("To exit write stop.");
+        let mut select: String = String::new(); 
+        std::io::stdin().read_line(&mut select).unwrap();
+    // Is needed to clean the String input
+        select = select.trim().to_string();
+        if select == "stop" {
+        break;
+        }
+     }
 }
