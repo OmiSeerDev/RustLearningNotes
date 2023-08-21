@@ -32,6 +32,15 @@ fn main() {
      }
 
      //Loops
+     let mut counter: u8 = 0;
+     loop {
+         counter = counter+1;
+         println!("{counter}");
+         if counter >= 5 {
+            break;
+        }
+     }
+
      loop {
         println!("To exit write stop.");
         let mut select: String = String::new(); 
