@@ -82,3 +82,10 @@ it should be declared as Option<T> where T is the expected type.
 <p>Errors are datatypes. It can be used as Option<T, E>
 Writing unwrap () displays the type if exists or the error.
 </p>
+
+<h3> Adding a cargo crate </h3>
+<p>
+    The keyword for using binaries and creates is <i>use</i>, 
+    and it must need to be added to the cargo.toml file 
+    in the depdendencies section
+</p>
