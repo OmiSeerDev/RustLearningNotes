@@ -1,54 +1,77 @@
-fn main() {
-    println!("Hello, Omar! Way to go!");
-    let age: u8 = 28;
-    // int Varibles can be changed to i and a number of bytes
-    // (i8, i16, i32, i64, i128, i256) or u (unsigned).
+use regex::Regex;
 
-    // Por defecto las variables son inmutables para mutarlas deben llevar mut
-    let mut times: &str = "years";
+fn main (){
+ //Set regex
+//(\d+)\s?\+\s?(\d+)
+let re_add = Regex::new(r"(\d+)\s?\+\s?(\d+)").unwrap();
+let re_sus = Regex::new(r"(\d+)\s?\-\s?(\d+)").unwrap();
+let re_mult = Regex::new(r"(\d+)\s?\*\s?(\d+)").unwrap();
 
-     println!("Hi I'm Omar and I'm {} {} old.", times, age);
+ //Get user data
+ println!("Please. Insert your expression.\n");
+ let mut expression: String = String::new();
+std::io::stdin().read_line(&mut expression).unwrap();
+ //Use operators
+//Multiplication
+loop {
+    // Iterative capture of regex values.  
+ let caps = re_mult.captures(expression.as_str());
+ 
+ if caps.is_none() {
+     break;
+ }
+ 
+ let caps = caps.unwrap();
+ 
+ let cap_expression = caps.get(0).unwrap().as_str();
+ let left_value: i32 = caps.get(1).unwrap().as_str().parse().unwrap();
+ let right_value: i32 = caps.get(2).unwrap().as_str().parse().unwrap();
+ 
+ let product = left_value * right_value;
+ expression = expression.replace(cap_expression, &product.to_string());
+ 
+ }
 
-     times = "centuries";
-     println!("{}" ,times);
+// Addition
+loop {
+   // Iterative capture of regex values.  
+let caps = re_add.captures(expression.as_str());
 
-     println!("Please insert your name: ");
-     let mut name: String = String::new();
-     std::io::stdin().read_line(&mut name).unwrap();
+if caps.is_none() {
+    break;
+}
 
-     println!("Congratulations, {}. You've made your first input log. 
-     Insert a number: ", name);
-     let mut firstNumber: String = String::new();
-     std::io::stdin().read_line(&mut firstNumber).unwrap();
+let caps = caps.unwrap();
 
-     let mut firstNumber_int: u32 = firstNumber.trim().parse().unwrap();
-    
+let cap_expression = caps.get(0).unwrap().as_str();
+let left_value: i32 = caps.get(1).unwrap().as_str().parse().unwrap();
+let right_value: i32 = caps.get(2).unwrap().as_str().parse().unwrap();
+println!("{:?} left:{} right:{}", caps, left_value, right_value);
 
-     //Conditionals
-     if firstNumber_int > 18 {
-        println!("Woow! you're an adult");
-    } else {
-         println!("Hey! you're underage!");
-     }
+let addition = left_value + right_value;
+expression = expression.replace(cap_expression, &addition.to_string());
 
-     //Loops
-     let mut counter: u8 = 0;
-     loop {
-         counter = counter+1;
-         println!("{counter}\n");
-         if counter >= 9 {
-            break;
-        }
-     }
+}
 
-     loop {
-        println!("To exit write stop.");
-        let mut select: String = String::new(); 
-        std::io::stdin().read_line(&mut select).unwrap();
-    // Is needed to clean the String input
-        select = select.trim().to_string();
-        if select == "stop" {
-        break;
-        }
-     }
+loop {
+    // Iterative capture of regex values.  
+ let caps = re_sus.captures(expression.as_str());
+ 
+ if caps.is_none() {
+     break;
+ }
+ 
+ let caps = caps.unwrap();
+ 
+ let cap_expression = caps.get(0).unwrap().as_str();
+ let left_value: i32 = caps.get(1).unwrap().as_str().parse().unwrap();
+ let right_value: i32 = caps.get(2).unwrap().as_str().parse().unwrap();
+ println!("{:?} left:{} right:{}", caps, left_value, right_value);
+ 
+ let sustraction = left_value - right_value;
+ expression = expression.replace(cap_expression, &sustraction.to_string());
+ 
+ }
+ //Set result
+ println!("{expression}");
 }
