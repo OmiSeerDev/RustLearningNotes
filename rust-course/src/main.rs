@@ -35,8 +35,8 @@ fn main() {
      let mut counter: u8 = 0;
      loop {
          counter = counter+1;
-         println!("{counter}");
-         if counter >= 5 {
+         println!("{counter}\n");
+         if counter >= 9 {
             break;
         }
      }
