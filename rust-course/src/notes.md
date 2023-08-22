@@ -91,8 +91,24 @@
 
 <p>Arrays: Immutable series of data that cannot have different types within. </p>
 <code>
- let one_tuple: [u32;3] = [200, 0, 24, 32]; 
+ let array: [u32;3] = [200, 0, 24, 32]; 
  //One can access to elements is through the indexes.
+</code>
+
+<p>Vector: Immutable series of data that cannot have different types within. </p>
+<code>
+ let vector: Vec<u32>> = Vec::new();
+  vector = [200, 0, 24, 32]; 
+ //One can access to elements is through the indexes.
+
+//Adding elements using:
+ vector.push(element);
+
+let mut friends: Vec<&str> = Vec::new();
+friends.push("Omi");
+friends.push("Santa");
+friends.pop();
+print!("{:?}", friends);
 </code>
 
 <p>
