@@ -74,6 +74,27 @@
 
 </p>
 <h3> Some type annotations </h3>
+
+## There are 4 types of primitives
+<ul>
+    <li>int: that can be set to the bytes and if has a sign or not. i and u.</li>
+    <li>float: that can be f32 and f64 (equivalent to float and double in C.)</li>
+    <li>bool : True or false</li>
+    <li>char: defined using 4 bytes, can get any unicode char and requires ' ' </li>
+</ul>
+
+## There are secondary types
+<p>Tuples: Immutable series of data that can have different types within. </p>
+<code>
+ let one_tuple: (u32, u32,u32, f32) = (200, 10, 4, -32.1); 
+</code>
+
+<p>Arrays: Immutable series of data that cannot have different types within. </p>
+<code>
+ let one_tuple: [u32;3] = [200, 0, 24, 32]; 
+ //One can access to elements is through the indexes.
+</code>
+
 <p>Rust has no null types. If there's a type that is not known to be defined
 it should be declared as Option<T> where T is the expected type. 
 </p>
