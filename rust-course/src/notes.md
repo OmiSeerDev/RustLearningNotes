@@ -95,12 +95,14 @@
  //One can access to elements is through the indexes.
 </code>
 
-<p>Rust has no null types. If there's a type that is not known to be defined
+<p>
+Rust has no null types. If there's a type that is not known to be defined
 it should be declared as Option<T> where T is the expected type. 
 </p>
 
 
-<p>Errors are datatypes. It can be used as Option<T, E>
+<p>
+Errors are datatypes. It can be used as Option<T, E>
 Writing unwrap () displays the type if exists or the error.
 </p>
 
