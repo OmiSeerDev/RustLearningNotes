@@ -122,6 +122,22 @@ Errors are datatypes. It can be used as Option<T, E>
 Writing unwrap () displays the type if exists or the error.
 </p>
 
+<h3>Functions</h3>
+<p>
+Functions are used to shorten and modularize code.
+</p>
+<code>
+fn add_one (num:u32){
+   num = num +  1;
+}
+
+// Return types are set by using -> 
+
+fn add_two_numbers (numA:u32 ,numB:u32) -> u32 {
+    return numA + numB;
+}
+</code>
+
 <h3> Adding a cargo crate </h3>
 <p>
     The keyword for using binaries and creates is <i>use</i>, 
